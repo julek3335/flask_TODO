@@ -5,7 +5,9 @@
     {% with messages = get_flashed_messages() %}
         {% if messages %}
             {% for message in messages %}
-                <p>{{message}}</p>
+            <div class="alert alert-primary" role="alert">
+                {{message}}
+            </div>
             {% endfor %}
         {% endif %}
     {% endwith %}
@@ -28,7 +30,7 @@
                 <td>{{task["content"]}}</td>
                 <td>
                     <form method="post" action="{{ url_for('delPost', _id=task["_id"]) }}">
-                        <button type="submit">Usuń</button>
+                        <button type="submit" class="btn btn-danger">Delete</button>
                       </form>
                 </td>
             </tr>

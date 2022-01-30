@@ -5,14 +5,30 @@
 {% with messages = get_flashed_messages() %}
 {% if messages %}
     {% for message in messages %}
-        <p>{{message}}</p>
+    <div class="alert alert-primary" role="alert">
+        {{message}}
+    </div>
     {% endfor %}
 {% endif %}
 {% endwith %}
 
 <form action="#" method="POST">
-    <input type="text" name = "title">
-    <input type="text" name = "content">
-    <input type="submit" value="submit">
+    <div class="card">
+        <div class="card-header">
+            Add task
+          </div>
+        <div class="mb-3">
+            <label for="titleInput" class="form-label">Title</label>
+            <input type="text" name = "title" id="titleInput">
+        </div>
+        <div class="mb-3">
+            <label for="contentInput" class="form-label">content</label>
+            <input type="text" name = "content" id="contentInput">
+        </div>
+        <div class="mb-3">
+            <input type="submit" value="submit" class="btn btn-primary">
+        </div>
+    </div>
+    
 </form>
 {% endblock %}
