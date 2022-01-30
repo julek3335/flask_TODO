@@ -155,6 +155,13 @@ def viewTasks():
         flash("nie jesteś zalogowany")
         return redirect(url_for("login"))
 
+@app.route('/<int:_id>', methods=['POST', 'GET'])
+def delPost(_id):
+    found_post = tasks.query.filter_by(_id = _id).delete()
+    db.session.commit()
+    db.session.remove()
+    return redirect(url_for("viewTasks"))
+
 
 # @app.route('/<name>')
 # def user(name):
