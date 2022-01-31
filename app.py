@@ -13,7 +13,8 @@ app.permanent_session_lifetime = timedelta(minutes= 1)
 app.config.update(
     DEBUG = True,
     ENV = 'develop',
-    SQLALCHEMY_DATABASE_URI = "sqlite:///app.db",
+    # SQLALCHEMY_DATABASE_URI = "sqlite:///app.db",
+    SQLALCHEMY_DATABASE_URI = "mysql://root:toor123@127.0.0.1:3306/app",
     SQLALCHEMY_ECHO = True,
     SQLALCHEMY_TRACK_MODIFICATIONS = True
 )
@@ -52,7 +53,7 @@ class tasks(db.Model):
 
 @app.route('/')
 def home():
-    return render_template("index.html")
+    return render_template("login.html")
 
 @app.route('/login', methods=['POST', 'GET'])
 def login():
