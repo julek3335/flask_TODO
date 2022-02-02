@@ -51,9 +51,9 @@ class tasks(db.Model):
         self.content = content
         self.user_id = user_id
 
-@app.route('/index')
+@app.route('/')
 def home():
-    return render_template("login.html")
+    return render_template("index.html")
 
 @app.route('/login', methods=['POST', 'GET'])
 def login():
